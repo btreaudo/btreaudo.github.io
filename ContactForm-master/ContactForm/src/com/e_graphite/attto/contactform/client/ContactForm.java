@@ -29,14 +29,14 @@ import com.google.gwt.user.client.Timer;
 public class ContactForm implements EntryPoint {
 
 	// Url to submit script
-    private static final String URL = "brenston@brenstontreaudo.com";
-
+    private static final String URL = "submit.php";
+    
     // OK response string of submit script
     private static final String OK_RESPONSE = "Sent";
 
-    // request builder
+    // request builder 
     private RequestBuilder builder;
-
+    
     // elements of submit and reset buttons
     private InputElement submitElement, resetElement;
     // elements of ok and error messages
@@ -51,7 +51,7 @@ public class ContactForm implements EntryPoint {
 
 	// Get list of <input> elements in the host page
 	NodeList<Element> elements = Document.get().getElementsByTagName("input");
-
+	
 	// Check if there is <input> element in the host page.
 	if (elements.getLength() == 0) {
 	    GWT.log("no input element");
@@ -65,7 +65,7 @@ public class ContactForm implements EntryPoint {
 	    if ("submit".equalsIgnoreCase(element.getPropertyString("type"))
 		    && InputElement.is(element)) {
 
-		// change "submit" to ordinary button
+		// change "submit" to ordinary button 
 		element.setPropertyString("type", "button");
 		submitElement = InputElement.as(element);
 		GWT.log("found submit element=" + element);
@@ -236,14 +236,14 @@ public class ContactForm implements EntryPoint {
      * Adds success and error messages under input fields and makes them invisible
      */
     private void addMessages() {
-
+	
 	// create <div> elements for messages
 	okMessageElement = DOM.createElement("div");
 	okMessageElement.setInnerText(External.OK.toString());
 	errorMessageElement = DOM.createElement("div");
 	errorMessageElement.setInnerText(External.ERROR.toString());
 
-	// find parent <div> for "Send message" button
+	// find parent <div> for "Send message" button 
 	Element e;
 	do {
 	    e = submitElement.getParentElement();
@@ -263,8 +263,8 @@ public class ContactForm implements EntryPoint {
 		.getOffsetHeight() ? okMessageElement.getOffsetHeight()
 		: errorMessageElement.getOffsetHeight();
 	GWT.log("height=" + height);
-
-	// hide messages by setting their height to 0 ...
+	
+	// hide messages by setting their height to 0 ... 
 	errorMessageElement.getStyle().setHeight(0, Unit.PX);
 	okMessageElement.getStyle().setHeight(0, Unit.PX);
 
@@ -302,11 +302,11 @@ public class ContactForm implements EntryPoint {
 	}
 	return com.google.gwt.http.client.URL.encodeQueryString(value);
     }
-
+    
     /**
      * Fills the input field by given string
      * @param id - id of input field
-     * @param value - new content of input field
+     * @param value - new content of input field 
      */
     private void setInputValueById(String id, String value) {
 
@@ -319,8 +319,8 @@ public class ContactForm implements EntryPoint {
     /**
      * Fills the text area by given string
      * @param id - id of text area
-     * @param value - new content of text area
-     */
+     * @param value - new content of text area 
+     */    
     private void setTextAreaValueById(String id, String value) {
 
 	Element nameElement = Document.get().getElementById(id);
