@@ -48,9 +48,8 @@
 	body {
 		-webkit-text-size-adjust: none;
 	}
-	/*centered headline text*/
-	.center {
-		text-align: center;
+
+	.ongoing-projects {
 		padding: 10px;
 	}
 
